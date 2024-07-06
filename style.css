@@ -1,0 +1,64 @@
+body {
+    background-color: #2f3136;
+    width: 1vw;
+}
+
+h1 {
+    white-space: nowrap;
+    padding-bottom: 30px;
+    margin-left: 100px;
+    font-size: 25px;
+    color: #fff;
+    width: 500px;
+}
+
+.category {
+    font-size: 30px;
+    width: 400px;
+    height: auto;
+    margin-left: 100px;
+    padding-bottom: 50px;
+    color: #fff;
+    display: flex;
+    flex-direction: column
+}
+
+.text {
+    white-space: nowrap;
+    padding-bottom: 10px;
+    margin-left: 100px;
+    font-size: 25px;
+    color: #fff;
+    width: 500px;
+}
+
+.wrap {
+    padding-bottom: 10px;
+    margin-left: 100px;
+    font-size: 25px;
+    color: #fff;
+    width: 80vw;
+}
+
+.param-unnecessary {
+    color: #00ff00;
+}
+
+.param-necessary {
+    color: #ff0000;
+}
+
+.link {
+    color: #ff8000;
+    margin-left: 100px;
+    white-space: nowrap;
+    font-size: 30px;
+}
+
+.invite {
+    margin-left: 30px;
+}
+
+.command {
+    color: #ff8000;
+}
