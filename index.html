@@ -1,21 +1,123 @@
 <!DOCTYPE html>
-<html>
-  <head>
+<html lang="ru">
+<head>
     <meta charset="UTF-8">
-    <link rel="shortcut icon" href="https://cdn.discordapp.com/avatars/694170281270312991/12afb587bfa982ddc3913cede9f1bb25.png?size=1024">
-    <link rel="stylesheet" href="style.css">
-    <title>Cephalon Cy</title>
-  </head>
-  <body>
-    <h1>Privacy Policy</h1>
-    <p class="text">1. The Cephalon Cy development team (hereinafter referred to as the developers) undertakes not to transfer your personal data that may have been obtained by Cephalon Cy (hereinafter referred to as the bot) to third parties.</p>
-    <p class="text">2. Developers use message intent for these purposes - using "prefix" commands to confirm input in some commands, as well as for stable operation of some commands (in this case, even switching to '/' commands will not give the desired result).</p>
-    <p class="text">3. The bot does not receive data about your activity and detailed information about the servers on which the bot is present - as unnecessary.</p>
-    <p class="text">4. When using the bot you agree to the privacy policy.</p>
-    <p class="text">5. The privacy policy is subject to change without prior notice.</p>
-    <h1>Terms of Service</h1>
-    <p class="text">1. It is recommended that you read the privacy policy before using the bot.</p>
-    <p class="text">2. The bot source code is distributed under the MIT license.</p>
-    <p class="text">3. Terms of Service are subject to change without prior notice.</p>
-    <p class="text">4. The bot can only be used within the Discord terms of use.</p>
-  </body>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="./Cy.png">
+    <link rel="stylesheet" href="./style.css">
+    <title>Cephalon Cy - Команды</title>
+</head>
+<body>
+    <header>
+        <h1>Cephalon Cy - Список команд</h1>
+        <p>Полный список всех доступных команд бота</p>
+        <p>Красным выделены команды, не имеющие расширенной справки</p>
+    </header>
+
+    <nav>
+        <a href="#cephalon">Cephalon</a>
+        <a href="#embeds">Embeds</a>
+        <a href="#fun">Fun</a>
+        <a href="#mod">Mod</a>
+        <a href="#misc">Misc</a>
+    </nav>
+
+    <section id="cephalon">
+        <h2>Категория Cephalon</h2>
+        <div class="command-grid">
+            <div class="category">
+                <h3>Основные команды</h3>
+                <ul class="command-list">
+                    <li><a href="Cephalon/help.html">help</a> - Справка по командам</li>
+                    <li><span class="param-necessary">botver</span> - Версия бота</li>
+                    <li><span class="param-necessary">devs</span> - Разработчики</li>
+                    <li><span class="param-necessary">info</span> - Информация о боте</li>
+                    <li><span class="param-necessary">invite</span> - Пригласить бота</li>
+                    <li><span class="param-necessary">locale</span> - Настройки языка</li>
+                    <li><span class="param-necessary">ping</span> - Проверка задержки</li>
+                    <li><span class="param-necessary">uptime</span> - Время работы бота</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="embeds">
+        <h2>Категория Embeds</h2>
+        <div class="command-grid">
+            <div class="category">
+                <h3>Работа с сообщениями</h3>
+                <ul class="command-list">
+                    <li><a href="Embeds/content.html">content</a> - Показать контент сообщения</li>
+                    <li><a href="Embeds/edit.html">edit</a> - Редактировать сообщение</li>
+                    <li><a href="Embeds/say.html">say</a> - Отправить сообщение через бота</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="fun">
+        <h2>Категория Fun</h2>
+        <div class="command-grid">
+            <div class="category">
+                <h3>Развлекательные команды</h3>
+                <ul class="command-list">
+                    <li><span class="param-necessary">aghanim</span> - Проверка длины своего аганима</li>
+                    <li><span class="param-necessary">dotersbrain</span> - Проверка на мозг дотера</li>
+                    <li><a href="Fun/roulette.html">roulette</a> - Русская рулетка</li>
+                    <li><span class="param-necessary">leaderboard</span> - Таблица лидеров по победам</li>
+                    <li><a href="Fun/settings.html">settings</a> - Настройки рулетки</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="mod">
+        <h2>Категория Mod</h2>
+        <div class="command-grid">
+            <div class="category">
+                <h3>Модерация</h3>
+                <ul class="command-list">
+                    <li><a href="Mod/#">ban</a> - Забанить пользователя</li>
+                    <li><a href="Mod/clear.html">clear</a> - Очистить сообщения</li>
+                    <li><a href="Mod/#">dm</a> - Отправить ЛС от имени бота</li>
+                    <li><a href="Mod/#">deaf</a> - Заглушить в голосовом канале</li>
+                    <li><a href="Mod/#">give</a> - Выдать роль</li>
+                    <li><a href="Mod/#">kick</a> - Кикнуть пользователя</li>
+                    <li><a href="Mod/#">mute</a> - Заглушить в текстовых каналах</li>
+                    <li><a href="Mod/#">take</a> - Забрать роль</li>
+                    <li><a href="Mod/#">timeout</a> - Таймаут пользователя</li>
+                    <li><a href="Mod/#">unmute</a> - Снять заглушение</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <section id="misc">
+        <h2>Категория Misc</h2>
+        <div class="command-grid">
+            <div class="category">
+                <h3>Разное</h3>
+                <ul class="command-list">
+                    <li><a href="Misc/#">about</a> - Информация о пользователе</li>
+                    <li><a href="Misc/#">avatar</a> - Аватар пользователя</li>
+                    <li><a href="Misc/#">coinflip</a> - Подбросить монетку</li>
+                    <li><a href="Misc/#">roll</a> - Случайное число</li>
+                    <li><a href="Misc/#">roleinfo</a> - Информация о роли</li>
+                    <li><a href="Misc/#">rolemembers</a> - Участники с ролью</li>
+                    <li><a href="Misc/#">serverinfo</a> - Информация о сервере</li>
+                    <li><a href="Misc/#">someone</a> - Случайный участник</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

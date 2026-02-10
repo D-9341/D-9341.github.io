@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда say</title>
+</head>
+<body>
+    <header>
+        <h1>Команда say</h1>
+        <p>Отправка сообщений через бота с поддержкой embed'ов</p>
+    </header>
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#examples">Примеры</a>
+    </nav>
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Позволяет отправить сообщение от имени бота с поддержкой форматирования, embed'ов и кнопок. Все параметры являются необязательными.</p>
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/say <span class="param-unnecessary">[обычный_текст] [&t заголовок] [&d описание] [&f футер] [&c цвет_HEX] [&th миниатюра] [&img изображение] [&msg сообщение_над_эмбедом] [&b текст_кнопки | url_ссылка]</span></div>
+        <h2 id="parameters">Параметры embed'а</h2>
+        <ul>
+            <li><span class="param-unnecessary">&t</span> - заголовок embed'а</li>
+            <li><span class="param-unnecessary">&d</span> - описание embed'а</li>
+            <li><span class="param-unnecessary">&f</span> - текст в футере embed'а</li>
+            <li><span class="param-unnecessary">&c</span> - цвет embed'а в HEX формате (например: #FF0000)</li>
+            <li><span class="param-unnecessary">&th</span> - URL миниатюры (изображение справа)</li>
+            <li><span class="param-unnecessary">&img</span> - URL основного изображения (изображение снизу)</li>
+            <li><span class="param-unnecessary">&msg</span> - обычный текст над embed'ом</li>
+            <li><span class="param-unnecessary">&b</span> - кнопка в формате: "label текст | url ссылка"</li>
+        </ul>
+        <div class="note">
+            <p><strong>Примечание:</strong> Все параметры являются необязательными. Можно использовать любую комбинацию параметров.</p>
+        </div>
+        <h2 id="examples">Примеры использования</h2>
+        <h3>Простое сообщение:</h3>
+        <div class="example">cy/say <span class="param-unnecessary">Привет, мир!</span></div>
+        <h3>Embed с заголовком и описанием:</h3>
+        <div class="example">cy/say <span class="param-unnecessary">&t Важное объявление &d Это тестовое сообщение с embed'ом</span></div>
+        <h3>Embed с цветом и изображениями:</h3>
+        <div class="example">cy/say <span class="param-unnecessary">&t Красивый embed &d С цветом и картинками &c #FF5733 &th https://example.com/thumb.png &img https://example.com/image.png</span></div>
+        <h3>Сообщение с кнопкой:</h3>
+        <div class="example">cy/say <span class="param-unnecessary">&t Наш сервер &d Присоединяйтесь к нам! &b Присоединиться | https://discord.gg/example</span></div>
+        <h3>Комбинированный пример:</h3>
+        <div class="example">cy/say <span class="param-unnecessary">Добро пожаловать! &t Информация &d Это основной текст сообщения &f Подпись бота &c #00FF00 &b GitHub | https://github.com &b Discord | https://discord.gg/example</span></div>
+        <h3>Несколько кнопок:</h3>
+        <div class="example">cy/say <span class="param-unnecessary">&t Ссылки &d Полезные ресурсы &b label Документация | url https://docs.example.com &b label Поддержка | url https://support.example.com &b label Веб-сайт | url https://example.com</span></div>
+        <div class="warning">
+            <strong>Ограничение:</strong> Максимальное количество кнопок в одном сообщении - 5. При превышении этого лимита лишние кнопки будут проигнорированы.
+        </div>
+        <h2>Особенности работы с кнопками</h2>
+        <ul>
+            <li>Формат кнопки: <span class="example">&b label текст_кнопки | url URL_ссылка</span></li>
+            <li>Между текстом и URL должен быть разделитель <span class="example">|</span></li>
+            <li>URL должен быть валидной ссылкой (начинаться с http:// или https://)</li>
+            <li>Кнопки отображаются в строку под embed'ом</li>
+            <li>Максимальная длина текста кнопки - 80 символов</li>
+        </ul>
+        <h2>Результаты выполнения</h2>
+        <h3>Успех:</h3>
+        <ul>
+            <li>Сообщение отправлено в текущий канал</li>
+            <li>Отображается превью созданного embed'а (если использовались параметры embed'а)</li>
+        </ul>
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Неверный формат параметров</li>
+            <li>Невалидный URL для изображений или кнопок</li>
+            <li>Отсутствуют необходимые разрешения у бота</li>
+        </ul>
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+        </div>
+        <div class="note">
+            <p><strong>Совет:</strong> Для сложных сообщений с множеством параметров рекомендуется сначала протестировать команду в отдельном канале, чтобы убедиться в правильности отображения.</p>
+        </div>
+    </div>
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

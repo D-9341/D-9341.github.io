@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда help</title>
+</head>
+<body>
+    <header>
+        <h1>Команда help</h1>
+        <p>Справка по командам бота с поддержкой локализаций</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#locales">Локализации</a>
+        <a href="#examples">Примеры</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Выводит основное меню со всеми командами. Если указать определённую команду, будет выведена помощь по ней (если команда имеет параметры).</p>
+        <p>Поддерживает различные локализации для отображения справки на разных языках.</p>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/help <span class="param-unnecessary">[команда]</span> <span class="param-unnecessary">[локаль]</span></div>
+        
+        <h2 id="locales">Поддерживаемые локализации</h2>
+        <ul>
+            <li><span class="param-unnecessary">ru</span> - Русский язык (по умолчанию)</li>
+            <li><span class="param-unnecessary">en</span> - Английский язык</li>
+            <li><span class="param-unnecessary">gnida</span> - "Особый" язык (используйте на свой страх и риск)</li>
+            <li><span class="param-unnecessary">gnida_lite</span> - Идентично оригинальной локали, но на порядок цензурнее</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>Внимание:</strong> Установка локали на <span class="param-unnecessary">gnida</span> производится на ваш страх и риск. 
+            Создатели этого приложения не несут ответственности за любые происшествия, связанные с этой локалью.
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Основное меню справки:</h3>
+        <div class="example">cy/help</div>
+        
+        <h3>Справка по конкретной команде:</h3>
+        <div class="example">cy/help <span class="param-unnecessary">edit</span></div>
+        
+        <h3>Справка на английском языке:</h3>
+        <div class="example">cy/help <span class="param-unnecessary">edit en</span></div>
+        
+        <h3>Справка по команде на определённом языке:</h3>
+        <div class="example">cy/help <span class="param-unnecessary">clear en</span></div>
+        
+        <h2>Результаты выполнения</h2>
+        <h3>Успех:</h3>
+        <ul>
+            <li>Подробности использования команды на выбранном языке</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Команда не существует или у неё нет параметров</li>
+            <li>Указанная локаль не поддерживается</li>
+            <li>Локализация для запрошенной команды недоступна на выбранном языке</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Примечание:</strong> Если локаль не указана, используется язык исполнителя команды. 
+            Если для выбранной команды нет локализации на запрошенном языке, будет показана справка на языке по умолчанию.</p>
+        </div>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

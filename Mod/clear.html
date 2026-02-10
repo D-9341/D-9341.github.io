@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда clear</title>
+</head>
+<body>
+    <header>
+        <h1>Команда clear</h1>
+        <p>Очистка сообщений с расширенными фильтрами</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#flags">Флаги</a>
+        <a href="#examples">Примеры</a>
+        <a href="#limits">Ограничения</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Позволяет массово удалять сообщения с различными фильтрами. Поддерживает удаление сообщений по типу контента, автору и содержанию.</p>
+        
+        <div class="warning">
+            <strong>Требуемые разрешения:</strong> Исполнителю необходимы права администратора. Боту необходимы разрешения на управление сообщениями.
+        </div>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/clear <span class="param-necessary">количество</span> <span class="param-unnecessary">[флаги]</span></div>
+        
+        <h2 id="flags">Флаги фильтрации</h2>
+        
+        <h3>Фильтры по типу отправителя:</h3>
+        <ul>
+            <li><span class="param-unnecessary">--everyone</span> или <span class="param-unnecessary">-e</span> - удалить сообщения от всех</li>
+            <li><span class="param-unnecessary">--bots</span> или <span class="param-unnecessary">-b</span> - удалить только сообщения от ботов</li>
+            <li><span class="param-unnecessary">--users</span> или <span class="param-unnecessary">-u</span> - удалить только сообщения от людей</li>
+        </ul>
+        
+        <h3>Фильтры по содержанию:</h3>
+        <ul>
+            <li><span class="param-unnecessary">--exact текст</span> или <span class="param-unnecessary">-x текст</span> - удалить сообщения с точным совпадением текста</li>
+            <li><span class="param-unnecessary">--contains текст</span> или <span class="param-unnecessary">-c текст</span> - удалить сообщения, содержащие текст (игнорирует регистр)</li>
+        </ul>
+        
+        <h3>Фильтры по типу контента:</h3>
+        <ul>
+            <li><span class="param-unnecessary">--embeds</span> или <span class="param-unnecessary">-E</span> - удалить сообщения с embed'ами</li>
+            <li><span class="param-unnecessary">--attachments</span> или <span class="param-unnecessary">-A</span> - удалить сообщения с вложениями</li>
+            <li><span class="param-unnecessary">--stickers</span> или <span class="param-unnecessary">-S</span> - удалить сообщения со стикерами</li>
+        </ul>
+        
+        <h3>Дополнительные флаги:</h3>
+        <ul>
+            <li><span class="param-unnecessary">--silent</span> или <span class="param-unnecessary">-s</span> - не показывать результаты удаления</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Примечание:</strong> Флаги можно комбинировать. При использовании неизвестного флага все флаги игнорируются.</p>
+        </div>
+        
+        <div class="warning">
+            <strong>Ограничение:</strong> Использование <span class="param-unnecessary">-x</span> и <span class="param-unnecessary">-c</span> одновременно невозможно. Будет выполнен фильтр <span class="param-unnecessary">-x</span>.
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Базовое использование:</h3>
+        <div class="example">cy/clear <span class="param-necessary">10</span></div>
+        
+        <h3>Удаление сообщений ботов:</h3>
+        <div class="example">cy/clear <span class="param-necessary">50</span> <span class="param-unnecessary">--bots</span></div>
+        
+        <h3>Удаление сообщений с определённым текстом:</h3>
+        <div class="example">cy/clear <span class="param-necessary">30</span> <span class="param-unnecessary">--contains оффтоп</span></div>
+        
+        <h3>Комбинирование флагов:</h3>
+        <div class="example">cy/clear <span class="param-necessary">25</span> <span class="param-unnecessary">-b -c спам -s</span></div>
+        
+        <h3>Удаление сообщений с вложениями:</h3>
+        <div class="example">cy/clear <span class="param-necessary">15</span> <span class="param-unnecessary">--attachments</span></div>
+        
+        <h3>Тихий режим (без отчёта):</h3>
+        <div class="example">cy/clear <span class="param-necessary">20</span> <span class="param-unnecessary">--silent</span></div>
+        
+        <h3>Сложный фильтр:</h3>
+        <div class="example">cy/clear <span class="param-necessary">100</span> <span class="param-unnecessary">-u -c реклама -E -s</span></div>
+        
+        <h2 id="limits">Ограничения и важная информация</h2>
+        
+        <div class="warning">
+            <h3>Ограничения Discord API:</h3>
+            <ul>
+                <li>Сообщения старше 2 недель удаляются не сразу</li>
+                <li>При удалении более 100 сообщений требуется подтверждение владельца сервера</li>
+                <li>Только владелец сервера может удалять от 250 сообщений за раз</li>
+                <li>Максимальное количество за одну операцию - 300 сообщений</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Особенности работы:</h3>
+            <p>При указании диапазона удаляется столько сообщений, сколько будет найдено в пределах заданного количества, а не точно указанное число.</p>
+            <p>Например: <span class="example">cy/clear 10 --bots</span> - если сообщения чередуются, будет удалено только количество сообщений от ботов, найденных в пределах 10 сообщений.</p>
+        </div>
+        
+        <h2>Результаты выполнения</h2>
+        <h3>Успех:</h3>
+        <ul>
+            <li>Отчёт об удалённых сообщениях (если не используется --silent)</li>
+            <li>Подтверждение выполнения операции</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Недостаточно прав для выполнения операции</li>
+            <li>Превышены лимиты Discord API</li>
+            <li>Неверный синтаксис команды</li>
+            <li>Сообщения не найдены по указанным критериям</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Подтверждение:</strong> При удалении большого количества сообщений бот может запросить подтверждение операции для предотвращения случайного удаления.</p>
+        </div>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+            <p><span class="param-necessary">Красный</span> - обязательный параметр</p>
+        </div>
+        <div class="warning">
+            <strong>Внимание:</strong> Данная команда необратима. Удалённые сообщения невозможно восстановить через Discord интерфейс. Используйте с осторожностью.
+        </div>
+    </div>
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

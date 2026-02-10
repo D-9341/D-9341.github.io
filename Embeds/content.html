@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда content</title>
+</head>
+<body>
+    <header>
+        <h1>Команда content</h1>
+        <p>Просмотр полного контента сообщений</p>
+    </header>
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#usage">Использование</a>
+    </nav>
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Показывает полный контент сообщения, сохраняя всё форматирование. Если у сообщения есть embed, показываются некоторые поля: заголовок, описание, футер, ссылки на картинки и цвет.</p>
+        <p>В случае, если запрошено сообщение от бота - будет показан способ повторения этого сообщения.</p>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/content <span class="param-necessary">ID_сообщения</span> <span class="param-unnecessary">[канал] [--edit]</span></div>
+        
+        <h2 id="usage">Использование</h2>
+        <p>Если был использован параметр <span class="param-unnecessary">--edit</span>, то будет возвращено сообщение в формате:</p>
+        <div class="example">cy/edit <span class="param-necessary">ID_сообщения</span> <span class="param-unnecessary">параметры_сообщения</span></div>
+        
+        <h2>Результаты выполнения</h2>
+        <h3>Успех:</h3>
+        <ul>
+            <li>Подробный контент сообщения, если оно было отправлено ботом</li>
+            <li>Развёрнутый контент сообщения</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Сообщение не найдено</li>
+        </ul>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+            <p><span class="param-necessary">Красный</span> - обязательный параметр</p>
+        </div>
+    </div>
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда edit</title>
+</head>
+<body>
+    <header>
+        <h1>Команда edit</h1>
+        <p>Редактирование сообщений, отправленных ботом</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#examples">Примеры</a>
+        <a href="#notes">Примечания</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Редактирует сообщение, отправленное ботом. Исполнителю необходимы разрешения - управлять сообщениями.</p>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/edit <span class="param-necessary">ID_сообщения</span> <span class="param-unnecessary">[обычный_текст] [&t заголовок] [&d описание] [&f футер] [&c цвет_HEX] [&th миниатюра] [&img изображение]</span></div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        <div class="example">cy/edit <span class="param-necessary">123456789012345678</span> <span class="param-unnecessary">Новый текст сообщения</span></div>
+        <div class="example">cy/edit <span class="param-necessary">123456789012345678</span> <span class="param-unnecessary">&d Новое описание &c #FF0000</span></div>
+        <div class="example">cy/edit <span class="param-necessary">123456789012345678</span> <span class="param-unnecessary">--clean</span></div>
+        <div class="example">cy/edit <span class="param-necessary">123456789012345678</span> <span class="param-unnecessary">--noembed</span></div>
+        <div class="example">cy/edit <span class="param-necessary">123456789012345678</span> <span class="param-unnecessary">--delete</span></div>
+        
+        <h2>Специальные флаги</h2>
+        <ul>
+            <li><span class="param-unnecessary">--clean</span> - удаляет контент над embed'ом</li>
+            <li><span class="param-unnecessary">--noembed</span> - удаляет embed</li>
+            <li><span class="param-unnecessary">--delete</span> - полностью удаляет сообщение</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>Ограничение:</strong> Использование <span class="param-unnecessary">--clean</span> и <span class="param-unnecessary">--noembed</span> одновременно невозможно.
+        </div>
+        
+        <h2 id="notes">Примечания</h2>
+        <div class="note">
+            <p>Если у сообщения есть embed и в команде нет аргументов, автоматически будет заменён &msg.</p>
+            <p>Заголовок, описание и цвет будут взяты со старого embed'а, если таковой имеется и эти аргументы не были указаны.</p>
+            <p>Для очистки какого-либо поля укажите аргумент и оставьте его пустым: <span class="example">cy/edit ID &d</span> - это очистит описание.</p>
+        </div>
+        
+        <h2>Результаты выполнения</h2>
+        <h3>Успех:</h3>
+        <ul>
+            <li>Отредактированное сообщение</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Сообщение не найдено</li>
+            <li>Сообщение не было отправлено ботом</li>
+        </ul>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+            <p><span class="param-necessary">Красный</span> - обязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>
