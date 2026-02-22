@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда roll</title>
+</head>
+<body>
+    <header>
+        <h1>Команда roll</h1>
+        <p>Генерация случайных чисел и бросок дайсов</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#formats">Форматы</a>
+        <a href="#dice">Броски дайсов</a>
+        <a href="#examples">Примеры</a>
+        <a href="#limits">Ограничения</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Универсальная команда для генерации случайных чисел. Поддерживает диапазоны, дайсы (dice) и специальные форматы.</p>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/roll <span class="param-unnecessary">[от/XdY] [до]</span></div>
+        
+        <h2 id="parameters">Параметры</h2>
+        <ul>
+            <li><span class="param-unnecessary">параметры</span> - может быть числом, диапазоном (X-Y) или дайсами (XdY)</li>
+        </ul>
+        
+        <h2 id="formats">Форматы использования</h2>
+        
+        <h3>1. Без параметров:</h3>
+        <p>Генерирует число от 0 до 100.</p>
+        <div class="note">
+            <strong>Формат вывода:</strong> Всегда с ведущим нулём (00-99)
+        </div>
+        
+        <h3>2. Одно число:</h3>
+        <p>Генерирует число от 0 до указанного.</p>
+        <div class="example">cy/roll 50 → число от 0 до 50</div>
+        
+        <h3>3. Диапазон (дефис):</h3>
+        <p>Генерирует число в указанном диапазоне включительно.</p>
+        <div class="example">cy/roll 10-20 → число от 10 до 20</div>
+        <div class="warning">Если первое число больше второго, возвращается первое число (например, 20-10 → 20)</div>
+        
+        <h3>4. Два числа через пробел:</h3>
+        <p>Альтернативный способ указания диапазона.</p>
+        <div class="example">cy/roll 10 20 → число от 10 до 20</div>
+        
+        <h3>5. Бросок дайсов (XdY):</h3>
+        <p>Симуляция броска игральных костей. X - количество дайсов, Y - количество граней.</p>
+        <div class="example">cy/roll 2d6 → бросок двух шестигранных кубиков</div>
+
+        <h2 id="dice">Броски дайсов</h2>
+        
+        <div class="note">
+            <h3>Особенности броска дайсов:</h3>
+            <ul>
+                <li><strong>Один дайс (1dY):</strong> показывает результат и критические значения</li>
+                <li><strong>Несколько дайсов (XdY):</strong> показывает каждый бросок и итоговую сумму (спойлер)</li>
+                <li><strong>1d2:</strong> вместо броска дайсов подкидывает монетку</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Критические значения для d20:</h3>
+            <ul>
+                <li><strong>1</strong> - "критический провал"</li>
+                <li><strong>20</strong> - "критический успех!"</li>
+            </ul>
+        </div>
+        
+        <h3>Примеры бросков дайсов:</h3>
+        <div class="example">
+            cy/roll 1d20 → 15<br>
+            cy/roll 1d20 → 1, критический провал<br>
+            cy/roll 3d6 →<br>
+            1. 4<br>
+            2. 2<br>
+            3. 6<br>
+            В сумме - 12
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Команда</th>
+                <th>Результат</th>
+                <th>Описание</th>
+            </tr>
+            <tr>
+                <td>cy/roll</td>
+                <td>07</td>
+                <td>Случайное число 0-100</td>
+            </tr>
+            <tr>
+                <td>cy/roll 50</td>
+                <td>32</td>
+                <td>Число 0-50</td>
+            </tr>
+            <tr>
+                <td>cy/roll 10-20</td>
+                <td>15</td>
+                <td>Число 10-20</td>
+            </tr>
+            <tr>
+                <td>cy/roll 10 20</td>
+                <td>15</td>
+                <td>Число 10-20</td>
+            </tr>
+            <tr>
+                <td>cy/roll 1d20</td>
+                <td>20, критический успех!</td>
+                <td>Бросок d20</td>
+            </tr>
+            <tr>
+                <td>cy/roll 2d6</td>
+                <td>1. 4<br>2. 2<br>Сумма - 6</td>
+                <td>Два шестигранных кубика</td>
+            </tr>
+        </table>
+        
+        <h2 id="limits">Ограничения</h2>
+        
+        <div class="warning">
+            <h3>Для обычных пользователей:</h3>
+            <ul>
+                <li><strong>Максимум дайсов:</strong> 20</li>
+                <li><strong>Максимум граней:</strong> 20</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Для разработчиков бота:</h3>
+            <ul>
+                <li><strong>Максимум дайсов:</strong> 100</li>
+                <li><strong>Максимум граней:</strong> 100</li>
+            </ul>
+        </div>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+    <script src="../scripts/index.js"></script>
+</body>
+</html>

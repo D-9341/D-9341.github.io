@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="shortcut icon" href="../Cy.png">
+    <link rel="shortcut icon" href="../media/Cy.png">
     <link rel="stylesheet" href="../style.css">
     <title>Cephalon Cy - Команда say</title>
 </head>
@@ -20,7 +20,7 @@
     </nav>
     <div class="command-doc">
         <h2>Назначение</h2>
-        <p>Позволяет отправить сообщение от имени бота с поддержкой форматирования, embed'ов и кнопок. Все параметры являются необязательными.</p>
+        <p>Позволяет отправить сообщение от имени бота с поддержкой форматирования, embed'ов и кнопок. Все параметры являются необязательными</p>
         <h2 id="syntax">Синтаксис</h2>
         <div class="syntax">cy/say <span class="param-unnecessary">[обычный_текст] [&t заголовок] [&d описание] [&f футер] [&c цвет_HEX] [&th миниатюра] [&img изображение] [&msg сообщение_над_эмбедом] [&b текст_кнопки | url_ссылка]</span></div>
         <h2 id="parameters">Параметры embed'а</h2>
@@ -35,7 +35,7 @@
             <li><span class="param-unnecessary">&b</span> - кнопка в формате: "label текст | url ссылка"</li>
         </ul>
         <div class="note">
-            <p><strong>Примечание:</strong> Все параметры являются необязательными. Можно использовать любую комбинацию параметров.</p>
+            <p><strong>Примечание:</strong> Все параметры являются необязательными. Можно использовать любую комбинацию параметров</p>
         </div>
         <h2 id="examples">Примеры использования</h2>
         <h3>Простое сообщение:</h3>
@@ -50,13 +50,10 @@
         <div class="example">cy/say <span class="param-unnecessary">Добро пожаловать! &t Информация &d Это основной текст сообщения &f Подпись бота &c #00FF00 &b GitHub | https://github.com &b Discord | https://discord.gg/example</span></div>
         <h3>Несколько кнопок:</h3>
         <div class="example">cy/say <span class="param-unnecessary">&t Ссылки &d Полезные ресурсы &b label Документация | url https://docs.example.com &b label Поддержка | url https://support.example.com &b label Веб-сайт | url https://example.com</span></div>
-        <div class="warning">
-            <strong>Ограничение:</strong> Максимальное количество кнопок в одном сообщении - 5. При превышении этого лимита лишние кнопки будут проигнорированы.
-        </div>
         <h2>Особенности работы с кнопками</h2>
         <ul>
-            <li>Формат кнопки: <span class="example">&b label текст_кнопки | url URL_ссылка</span></li>
-            <li>Между текстом и URL должен быть разделитель <span class="example">|</span></li>
+            <li>Формат кнопки: <span class="param-explanation">&b label текст_кнопки | url URL_ссылка</span></li>
+            <li>Между текстом и URL должен быть разделитель <span class="param-explanation">|</span></li>
             <li>URL должен быть валидной ссылкой (начинаться с http:// или https://)</li>
             <li>Кнопки отображаются в строку под embed'ом</li>
             <li>Максимальная длина текста кнопки - 80 символов</li>
@@ -77,16 +74,17 @@
             <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
         </div>
         <div class="note">
-            <p><strong>Совет:</strong> Для сложных сообщений с множеством параметров рекомендуется сначала протестировать команду в отдельном канале, чтобы убедиться в правильности отображения.</p>
+            <p><strong>Совет:</strong> Для сложных сообщений с множеством параметров рекомендуется сначала протестировать команду в отдельном канале, чтобы убедиться в правильности отображения</p>
         </div>
     </div>
     <footer>
         <div class="button-group">
             <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
             <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
-            <a href="policy.html" class="button policy">Политика & Условия</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
         </div>
         <p>© 2025 Sus&Co. All rights reserved.</p>
     </footer>
+    <script src="../scripts/index.js"></script>
 </body>
 </html>

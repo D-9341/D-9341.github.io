@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда give</title>
+</head>
+<body>
+    <header>
+        <h1>Команда give</h1>
+        <p>Выдача ролей участникам</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#special">Специальные роли</a>
+        <a href="#examples">Примеры</a>
+        <a href="#limits">Ограничения</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Выдаёт одну или несколько ролей указанному участнику. Поддерживает массовую выдачу и специальные роли модерации</p>
+        
+        <div class="warning">
+            <strong>Требуемые разрешения:</strong> Исполнителю необходимы права на управление ролями. Боту необходимы разрешения на управление ролями
+        </div>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/give <span class="param-necessary">@участник</span> <span class="param-necessary">@роль</span> <span class="param-unnecessary">[@роль2 @роль3 ...]</span></div>
+        
+        <h2 id="parameters">Параметры</h2>
+        <ul>
+            <li><span class="param-necessary">@участник</span> - пользователь Discord для выдачи ролей</li>
+            <li><span class="param-necessary">@роль</span> - одна или несколько ролей через пробел</li>
+        </ul>
+        
+        <h2 id="special">Специальные роли</h2>
+        
+        <div class="note">
+            <h3>Роли модерации:</h3>
+            <ul>
+                <li><span class="param-unnecessary">Muted</span> - запрет на отправку сообщений</li>
+                <li><span class="param-unnecessary">Deafened</span> - запрет на речь в голосовых каналах</li>
+            </ul>
+            <p>Эти роли создаются автоматически при первом использовании и имеют особую логику проверки</p>
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Выдача одной роли:</h3>
+        <div class="example">cy/give <span class="param-necessary">@User</span> <span class="param-necessary">@Модератор</span></div>
+        
+        <h3>Выдача нескольких ролей:</h3>
+        <div class="example">cy/give <span class="param-necessary">@User</span> <span class="param-necessary">@Роль1</span> <span class="param-unnecessary">@Роль2 @Роль3</span></div>
+        
+        <h3>Выдача роли модерации:</h3>
+        <div class="example">cy/give <span class="param-necessary">@User</span> <span class="param-necessary">Muted</span></div>
+        
+        <h3>Комбинированная выдача:</h3>
+        <div class="example">cy/give <span class="param-necessary">@User</span> <span class="param-necessary">@VIP</span> <span class="param-unnecessary">@Геймер Muted</span></div>
+        
+        <h2 id="limits">Ограничения и важная информация</h2>
+        
+        <div class="warning">
+            <h3>Иерархия ролей:</h3>
+            <ul>
+                <li>Нельзя выдать роль выше вашей роли</li>
+                <li>Нельзя выдать роль равную вашей роли</li>
+                <li>Нельзя выдать роль выше роли бота</li>
+                <li>Нельзя выдать роль равную роли бота</li>
+                <li>Нельзя выдать роль @everyone</li>
+            </ul>
+        </div>
+        
+        <div class="warning">
+            <h3>Ограничения для специальных ролей:</h3>
+            <ul>
+                <li>Нельзя выдать Muted/Deafened разработчику бота</li>
+                <li>Нельзя выдать Muted/Deafened самому себе</li>
+                <li>Проверки иерархии ролей НЕ применяются к специальным ролям</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Особенности работы:</h3>
+            <ul>
+                <li>Роли выдаются последовательно</li>
+                <li>При ошибке выдачи одной роли остальные продолжают выдаваться</li>
+                <li>Если ни одна роль не была выдана, бот сообщит об этом</li>
+                <li>Для ролей Muted/Deafened отправляются отдельные уведомления</li>
+            </ul>
+        </div>
+        
+        <h2>Результаты выполнения</h2>
+        
+        <h3>Успех:</h3>
+        <ul>
+            <li>Список выданных ролей с упоминаниями</li>
+            <li>Упоминание участника, получившего роли</li>
+            <li>Отдельные уведомления для специальных ролей</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Недостаточно прав (иерархия ролей)</li>
+            <li>Попытка выдачи @everyone</li>
+            <li>Попытка выдачи Muted/Deafened разработчику</li>
+            <li>Попытка выдачи Muted/Deafened самому себе</li>
+            <li>Роль выше/равна роли бота</li>
+        </ul>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+            <p><span class="param-necessary">Красный</span> - обязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

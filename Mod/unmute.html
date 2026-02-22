@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда unmute</title>
+</head>
+<body>
+    <header>
+        <h1>Команда unmute</h1>
+        <p>Снятие запрета на отправку сообщений</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#features">Особенности</a>
+        <a href="#examples">Примеры</a>
+        <a href="#limits">Ограничения</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Снимает с участника роль Muted, восстанавливая возможность отправлять сообщения в чат</p>
+        
+        <div class="warning">
+            <strong>Требуемые разрешения:</strong> Исполнителю необходимы права на управление ролями. Боту необходимы разрешения на управление ролями
+        </div>
+        
+        <div class="note">
+            <strong>Важно:</strong> Эта команда работает ТОЛЬКО с ролью Muted. Для снятия тайм-аута используйте повторный timeout или ручное снятие
+        </div>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/unmute <span class="param-necessary">@участник</span> <span class="param-unnecessary">[причина]</span></div>
+        
+        <h2 id="parameters">Параметры</h2>
+        <ul>
+            <li><span class="param-necessary">@участник</span> - пользователь Discord для снятия мута</li>
+            <li><span class="param-unnecessary">[причина]</span> - причина снятия мута (отображается в аудит логе)</li>
+        </ul>
+        
+        <h2 id="features">Особенности работы</h2>
+        
+        <div class="warning">
+            <h3>Проверки перед выполнением:</h3>
+            <ul>
+                <li>Существует ли роль Muted на сервере?</li>
+                <li>Есть ли у участника роль Muted?</li>
+                <li>Нет проверок иерархии ролей!</li>
+                <li>Нет защиты разработчиков!</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Отсутствие проверок:</h3>
+            <p>В отличие от mute, команда unmute НЕ проверяет иерархию ролей. Это позволяет снимать мут даже с участников, у которых роль выше вашей. Разработчики бота также могут быть размучены</p>
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Размут без причины:</h3>
+        <div class="example">cy/unmute <span class="param-necessary">@User</span></div>
+        
+        <h3>Размут с причиной:</h3>
+        <div class="example">cy/unmute <span class="param-necessary">@User</span> <span class="param-unnecessary">Истёк срок наказания</span></div>
+        
+        <h3>Размут после объяснения:</h3>
+        <div class="example">cy/unmute <span class="param-necessary">@User</span> <span class="param-unnecessary">Пользователь принёс извинения</span></div>
+        
+        <h2 id="limits">Ограничения и важная информация</h2>
+        
+        <div class="warning">
+            <h3>Возможные ошибки:</h3>
+            <ul>
+                <li><strong>Роль Muted не создана</strong> - команда завершится с ошибкой</li>
+                <li><strong>У участника нет роли Muted</strong> - бот сообщит об этом</li>
+                <li><strong>Отсутствие прав</strong> - у бота нет прав manage_roles</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Альтернативные способы:</h3>
+            <ul>
+                <li><strong>cy/take @User Muted</strong> - также снимает мут, но с другим оформлением</li>
+                <li><strong>Ручное снятие</strong> - через интерфейс Discord</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Отличие от undeaf:</h3>
+            <ul>
+                <li>unmute - снимает роль Muted (текстовые каналы)</li>
+                <li>undeaf - снимает роль Deafened (голосовые каналы)</li>
+                <li>Команды независимы друг от друга</li>
+            </ul>
+        </div>
+        
+        <h2>Результаты выполнения</h2>
+        
+        <h3>Успех:</h3>
+        <ul>
+            <li>Embed-сообщение с заголовком о успешном снятии мута</li>
+            <li>Поле "Снял заглушение" с упоминанием модератора</li>
+            <li>Поле "По причине" с указанием причины</li>
+            <li>Timestamp времени выполнения</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Роль Muted не существует на сервере</li>
+            <li>Участник не имеет роли Muted</li>
+            <li>Отсутствие прав на управление ролями у бота</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>Важно:</strong> Снятие мута не удаляет роль Muted с сервера. Роль сохраняется для будущего использования
+        </div>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+            <p><span class="param-necessary">Красный</span> - обязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

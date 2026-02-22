@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда about</title>
+</head>
+<body>
+    <header>
+        <h1>Команда about</h1>
+        <p>Информация о пользователе</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#features">Особенности</a>
+        <a href="#examples">Примеры</a>
+        <a href="#fields">Поля информации</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Показывает подробную информацию о пользователе Discord: ID, дату создания аккаунта, статус, роли и другие данные.</p>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/about <span class="param-unnecessary">[@участник]</span></div>
+        
+        <h2 id="parameters">Параметры</h2>
+        <ul>
+            <li><span class="param-unnecessary">@участник</span> - пользователь Discord для просмотра информации (необязательный). Если не указан, показывает информацию о вызвавшем команду.</li>
+        </ul>
+        
+        <h2 id="features">Особенности работы</h2>
+        
+        <div class="warning">
+            <h3>Различия в отображении:</h3>
+            <ul>
+                <li><strong>В личных сообщениях:</strong> показывает только базовую информацию (ID, создание, глобальное имя)</li>
+                <li><strong>На сервере:</strong> показывает полную информацию (статус, никнейм, роли, высшую роль, дату входа)</li>
+            </ul>
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Информация о себе:</h3>
+        <div class="example">cy/about</div>
+        <div class="example">cy/me</div>
+        
+        <h3>Информация о другом пользователе:</h3>
+        <div class="example">cy/about @User</div>
+        
+        <h2 id="fields">Поля информации</h2>
+        
+        <h3>На сервере:</h3>
+        <ul>
+            <li><strong>ID</strong> - уникальный идентификатор пользователя</li>
+            <li><strong>Упоминание</strong> - тег для упоминания</li>
+            <li><strong>Создан</strong> - дата и время создания аккаунта (в формате Discord timestamp)</li>
+            <li><strong>Вошёл</strong> - дата и время присоединения к серверу</li>
+            <li><strong>Глобальное имя</strong> - имя пользователя Discord</li>
+            <li><strong>Никнейм</strong> - отображаемое имя на сервере (если установлено)</li>
+            <li><strong>Статус</strong> - текущий статус (В сети, Не беспокоить, Не активен, Не в сети)</li>
+            <li><strong>Бот?</strong> - является ли пользователь ботом</li>
+            <li><strong>Роли</strong> - список ролей пользователя (кроме @everyone)</li>
+            <li><strong>Высшая роль</strong> - наивысшая роль по иерархии</li>
+        </ul>
+        
+        <h3>В личных сообщениях:</h3>
+        <ul>
+            <li>ID</li>
+            <li>Упоминание</li>
+            <li>Дата создания аккаунта</li>
+            <li>Глобальное имя</li>
+        </ul>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+    <script src="../scripts/index.js"></script>
+</body>
+</html>

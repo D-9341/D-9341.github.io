@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда ban</title>
+</head>
+<body>
+    <header>
+        <h1>Команда ban</h1>
+        <p>Бан и софтбан участников сервера</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#flags">Флаги</a>
+        <a href="#examples">Примеры</a>
+        <a href="#limits">Ограничения</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Блокирует доступ участника к серверу. Поддерживает обычный бан и софтбан (бан с последующим автоматическим разбаном)</p>
+        
+        <div class="warning">
+            <strong>Требуемые разрешения:</strong> Исполнителю необходимы права на бан участников. Боту необходимы разрешения на бан участников
+        </div>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/ban <span class="param-necessary">@участник</span> <span class="param-unnecessary">[причина]</span></div>
+        
+        <h2 id="parameters">Параметры</h2>
+        <ul>
+            <li><span class="param-necessary">@участник</span> - пользователь Discord для бана</li>
+            <li><span class="param-unnecessary">[причина]</span> - причина бана (отображается в аудит логе)</li>
+        </ul>
+        
+        <h2 id="flags">Флаги</h2>
+        
+        <h3>Специальные параметры в причине:</h3>
+        <ul>
+            <li><span class="param-unnecessary">--soft</span> - софтбан (бан с автоматическим разбаном)</li>
+            <li><span class="param-unnecessary">--reason текст</span> - отдельное указание причины (полезно при использовании --soft)</li>
+        </ul>
+        
+        <div class="note">
+            <p><strong>Примечание:</strong> Флаги указываются внутри текста причины. При использовании --soft участник будет автоматически разбанен сразу после бана</p>
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Обычный бан:</h3>
+        <div class="example">cy/ban <span class="param-necessary">@User</span> <span class="param-unnecessary">Нарушение правил</span></div>
+        
+        <h3>Бан без указания причины:</h3>
+        <div class="example">cy/ban <span class="param-necessary">@User</span></div>
+        
+        <h3>Софтбан (очистка сообщений пользователя):</h3>
+        <div class="example">cy/ban <span class="param-necessary">@User</span> <span class="param-unnecessary">--soft Спам</span></div>
+        
+        <h3>Софтбан с отдельной причиной:</h3>
+        <div class="example">cy/ban <span class="param-necessary">@User</span> <span class="param-unnecessary">--soft --reason Массовый спам</span></div>
+        
+        <h2 id="limits">Ограничения и важная информация</h2>
+        
+        <div class="warning">
+            <h3>Иерархия ролей:</h3>
+            <ul>
+                <li>Нельзя забанить разработчика бота</li>
+                <li>Нельзя забанить участника с ролью выше вашей</li>
+                <li>Нельзя забанить участника с ролью равной вашей</li>
+                <li>Нельзя забанить участника с ролью выше роли бота</li>
+                <li>Нельзя забанить участника с ролью равной роли бота</li>
+                <li>Нельзя забанить самого себя</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Особенности работы:</h3>
+            <ul>
+                <li>При софтбане участник исключается и сразу возвращается, очищая свои сообщения за последние 7 дней</li>
+                <li>Разработчики бота защищены от бана на всех серверах</li>
+            </ul>
+        </div>
+        
+        <h2>Результаты выполнения</h2>
+        
+        <h3>Успех:</h3>
+        <ul>
+            <li>Embed-сообщение с информацией о забаненном участнике</li>
+            <li>Указание причины бана</li>
+            <li>Отметка "Упрощённо забанен" при использовании --soft</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Попытка бана разработчика бота</li>
+            <li>Недостаточно прав (иерархия ролей)</li>
+            <li>Попытка бана самого себя</li>
+            <li>Отсутствие прав у бота</li>
+        </ul>
+        
+        <div class="warning">
+            <strong>Внимание:</strong> Бан — необратимая мера (за исключением софтбана). Для восстановления доступа требуется ручной разбан
+        </div>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+            <p><span class="param-necessary">Красный</span> - обязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

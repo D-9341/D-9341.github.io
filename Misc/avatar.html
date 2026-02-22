@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда avatar</title>
+</head>
+<body>
+    <header>
+        <h1>Команда avatar</h1>
+        <p>Просмотр аватара пользователя</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#features">Особенности</a>
+        <a href="#examples">Примеры</a>
+        <a href="#formats">Форматы изображений</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Показывает аватар указанного пользователя в полном размере. Поддерживает анимированные и статичные аватары</p>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/avatar <span class="param-unnecessary">[@участник]</span></div>
+        
+        <h2 id="parameters">Параметры</h2>
+        <ul>
+            <li><span class="param-unnecessary">@участник</span> - пользователь Discord для просмотра аватара (необязательный). Если не указан, показывает аватар вызвавшего команду</li>
+        </ul>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Свой аватар:</h3>
+        <div class="example">cy/avatar</div>
+        
+        <h3>Аватар другого пользователя:</h3>
+        <div class="example">cy/avatar @User</div>
+        
+        <h2 id="formats">Форматы изображений</h2>
+        
+        <table class="comparison-table">
+            <tr>
+                <th>Тип аватара</th>
+                <th>Формат</th>
+                <th>Особенности</th>
+            </tr>
+            <tr>
+                <td>Анимированный</td>
+                <td>GIF</td>
+                <td>Сохраняет анимацию</td>
+            </tr>
+            <tr>
+                <td>Статичный</td>
+                <td>PNG</td>
+                <td>Высокое качество, прозрачность</td>
+            </tr>
+        </table>
+        
+        <h2>Результаты выполнения</h2>
+        
+        <h3>Успех:</h3>
+        <ul>
+            <li>Embed-сообщение с аватаром в полном размере</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Пользователь не найден</li>
+            <li>Отсутствие аватара</li>
+        </ul>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+    <script src="../scripts/index.js"></script>
+</body>
+</html>

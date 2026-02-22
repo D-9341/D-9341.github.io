@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда dm</title>
+</head>
+<body>
+    <header>
+        <h1>Команда dm</h1>
+        <p>Отправка анонимных сообщений в личные сообщения</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#features">Особенности</a>
+        <a href="#examples">Примеры</a>
+        <a href="#limits">Ограничения</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Отправляет сообщение указанному пользователю в личные сообщения от имени бота. Сообщение оформляется в embed с указанием автора</p>
+        
+        <div class="warning">
+            <strong>Требуемые разрешения:</strong> Исполнителю необходимы права на просмотр журнала аудита. Боту необходимо разрешение на отправку сообщений в ЛС
+        </div>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/dm <span class="param-necessary">@участник</span> <span class="param-necessary">текст</span></div>
+        
+        <h2 id="parameters">Параметры</h2>
+        <ul>
+            <li><span class="param-necessary">@участник</span> - пользователь Discord для отправки сообщения</li>
+            <li><span class="param-necessary">текст</span> - содержимое сообщения (поддерживаются ссылки, эмодзи, форматирование)</li>
+        </ul>
+        
+        <h2 id="features">Особенности работы</h2>
+        
+        <div class="note">
+            <h3>Оформление сообщения:</h3>
+            <ul>
+                <li>Сообщение отправляется в embed-блоке</li>
+                <li>В качестве автора embed'а указывается отправитель (ник и аватар)</li>
+                <li>Текст сообщения отображается в описании embed'а</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Подтверждение:</h3>
+            <p>После успешной отправки бот отвечает в канал embed-сообщением с подтверждением</p>
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Простое сообщение:</h3>
+        <div class="example">cy/dm <span class="param-necessary">@User</span> <span class="param-necessary">Привет! Проверь, пожалуйста, тикет</span></div>
+        
+        <h3>Сообщение с форматированием:</h3>
+        <div class="example">cy/dm <span class="param-necessary">@User</span> <span class="param-necessary">**Важно!** Обнови свои правила в <#123456789></span></div>
+        
+        <h3>Уведомление о нарушении:</h3>
+        <div class="example">cy/dm <span class="param-necessary">@User</span> <span class="param-necessary">Ваше сообщение было удалено за нарушение правил. Осторожнее</span></div>
+        
+        <h2 id="limits">Ограничения и важная информация</h2>
+        
+        <div class="warning">
+            <h3>Ограничения Discord:</h3>
+            <ul>
+                <li>Нельзя отправить сообщение пользователю, у которого закрыты ЛС</li>
+                <li>Нельзя отправить сообствие пользователю, который не находится на общем сервере с ботом</li>
+                <li>Бот должен иметь общий сервер с получателем</li>
+            </ul>
+        </div>
+        
+        <div class="warning">
+            <h3>Ограничения команды:</h3>
+            <ul>
+                <li>Кулдаун: 5 секунд на пользователя</li>
+                <li>Сообщение не является анонимным - получатель видит, кто отправитель</li>
+                <li>Текст сообщения обязателен</li>
+            </ul>
+        </div>
+        
+        <div class="note">
+            <h3>Рекомендации:</h3>
+            <ul>
+                <li>Используйте для официальных уведомлений</li>
+                <li>Не злоупотребляйте частыми отправками</li>
+                <li>Убедитесь, что пользователь может получать ЛС</li>
+            </ul>
+        </div>
+        
+        <h2>Результаты выполнения</h2>
+        
+        <h3>Успех:</h3>
+        <ul>
+            <li>Embed-сообщение отправлено пользователю в ЛС</li>
+            <li>Embed-подтверждение в канале выполнения</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Недостаточно прав для использования команды</li>
+            <li>Закрытые личные сообщения у получателя</li>
+            <li>Отсутствие общего сервера с получателем</li>
+        </ul>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+            <p><span class="param-necessary">Красный</span> - обязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>

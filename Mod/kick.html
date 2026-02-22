@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="../media/Cy.png">
+    <link rel="stylesheet" href="../style.css">
+    <title>Cephalon Cy - Команда kick</title>
+</head>
+<body>
+    <header>
+        <h1>Команда kick</h1>
+        <p>Исключение участника с сервера</p>
+    </header>
+    
+    <nav>
+        <a href="../index.html">← На главную</a>
+        <a href="#syntax">Синтаксис</a>
+        <a href="#parameters">Параметры</a>
+        <a href="#checks">Проверки</a>
+        <a href="#examples">Примеры</a>
+        <a href="#limits">Рекомендации</a>
+    </nav>
+    
+    <div class="command-doc">
+        <h2>Назначение</h2>
+        <p>Исключает участника с сервера. В отличие от бана, исключённый пользователь может вернуться по приглашению</p>
+        
+        <div class="warning">
+            <strong>Требуемые разрешения:</strong> Исполнителю необходимы права на исключение участников. Боту необходимы разрешения на исключение участников
+        </div>
+        
+        <h2 id="syntax">Синтаксис</h2>
+        <div class="syntax">cy/kick <span class="param-necessary">@участник</span> <span class="param-unnecessary">[причина]</span></div>
+        
+        <h2 id="parameters">Параметры</h2>
+        <ul>
+            <li><span class="param-necessary">@участник</span> - пользователь Discord для исключения</li>
+            <li><span class="param-unnecessary">[причина]</span> - причина кика (отображается в аудит логе)</li>
+        </ul>
+        
+        <h2 id="checks">Проверки иерархии</h2>
+        
+        <div class="warning">
+            <h3>Иерархия ролей:</h3>
+            <ul>
+                <li>Нельзя кикнуть разработчика бота</li>
+                <li>Нельзя кикнуть участника с ролью выше вашей</li>
+                <li>Нельзя кикнуть участника с ролью равной вашей</li>
+                <li>Нельзя кикнуть участника с ролью выше роли бота</li>
+                <li>Нельзя кикнуть участника с ролью равной роли бота</li>
+                <li>Нельзя кикнуть самого себя</li>
+            </ul>
+        </div>
+        
+        <h2 id="examples">Примеры использования</h2>
+        
+        <h3>Кик без причины:</h3>
+        <div class="example">cy/kick <span class="param-necessary">@User</span></div>
+        
+        <h3>Кик с причиной:</h3>
+        <div class="example">cy/kick <span class="param-necessary">@User</span> <span class="param-unnecessary">Нарушение правил</span></div>
+        
+        <h3>Кик за спам:</h3>
+        <div class="example">cy/kick <span class="param-necessary">@User</span> <span class="param-unnecessary">Массовая рассылка</span></div>
+        
+        <h2 id="limits">Ограничения и важная информация</h2>
+        
+        <div class="note">
+            <h3>Рекомендации:</h3>
+            <ul>
+                <li>Используйте кик при незначительных нарушениях</li>
+                <li>Для серьёзных нарушений используйте ban</li>
+                <li>Всегда указывайте причину для аудит лога</li>
+            </ul>
+        </div>
+        
+        <h2>Результаты выполнения</h2>
+        
+        <h3>Успех:</h3>
+        <ul>
+            <li>Упоминание исключённого участника</li>
+            <li>Указание причины кика</li>
+        </ul>
+        
+        <h3>Ошибки:</h3>
+        <ul>
+            <li>Попытка кика разработчика бота</li>
+            <li>Недостаточно прав (иерархия ролей)</li>
+            <li>Попытка кика самого себя</li>
+            <li>Отсутствие прав на исключение у бота</li>
+            <li>Кулдаун команды</li>
+        </ul>
+        
+        <div class="param-explanation">
+            <p><span class="param-unnecessary">Зелёный</span> - необязательный параметр</p>
+            <p><span class="param-necessary">Красный</span> - обязательный параметр</p>
+        </div>
+    </div>
+    
+    <footer>
+        <div class="button-group">
+            <a href="https://discord.gg/DrmbbRXBKA" class="button support" target="_blank">Сервер поддержки</a>
+            <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
+            <a href="../policy.html" class="button policy">Политика & Условия</a>
+        </div>
+        <p>© 2025 Sus&Co. All rights reserved.</p>
+    </footer>
+</body>
+</html>
