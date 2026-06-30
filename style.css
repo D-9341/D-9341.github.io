@@ -475,3 +475,14 @@ html {
     background-color: var(--color-jdh);
     color: var(--bg-color);
 }
+
+.input-container {
+    flex: 1;
+    min-width: 200px;
+    padding: 10px;
+    background: var(--bg-color);
+    color: var(--text-color);
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    font-family: monospace;
+}

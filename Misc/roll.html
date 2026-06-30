@@ -25,7 +25,7 @@
     
     <div class="command-doc">
         <h2>Назначение</h2>
-        <p>Универсальная команда для генерации случайных чисел. Поддерживает диапазоны, дайсы (dice) и специальные форматы.</p>
+        <p>Универсальная команда для генерации случайных чисел. Поддерживает диапазоны, дайсы (dice) и специальные форматы</p>
         
         <h2 id="syntax">Синтаксис</h2>
         <div class="syntax">cy/roll <span class="param-unnecessary">[от/XdY] [до]</span></div>
@@ -38,26 +38,26 @@
         <h2 id="formats">Форматы использования</h2>
         
         <h3>1. Без параметров:</h3>
-        <p>Генерирует число от 0 до 100.</p>
+        <p>Генерирует число от 0 до 100</p>
         <div class="note">
             <strong>Формат вывода:</strong> Всегда с ведущим нулём (00-99)
         </div>
         
         <h3>2. Одно число:</h3>
-        <p>Генерирует число от 0 до указанного.</p>
+        <p>Генерирует число от 0 до указанного</p>
         <div class="example">cy/roll 50 → число от 0 до 50</div>
         
         <h3>3. Диапазон (дефис):</h3>
-        <p>Генерирует число в указанном диапазоне включительно.</p>
+        <p>Генерирует число в указанном диапазоне включительно</p>
         <div class="example">cy/roll 10-20 → число от 10 до 20</div>
         <div class="warning">Если первое число больше второго, возвращается первое число (например, 20-10 → 20)</div>
         
         <h3>4. Два числа через пробел:</h3>
-        <p>Альтернативный способ указания диапазона.</p>
+        <p>Альтернативный способ указания диапазона</p>
         <div class="example">cy/roll 10 20 → число от 10 до 20</div>
         
         <h3>5. Бросок дайсов (XdY):</h3>
-        <p>Симуляция броска игральных костей. X - количество дайсов, Y - количество граней.</p>
+        <p>Симуляция броска игральных костей. X - количество дайсов, Y - количество граней</p>
         <div class="example">cy/roll 2d6 → бросок двух шестигранных кубиков</div>
 
         <h2 id="dice">Броски дайсов</h2>
@@ -100,22 +100,22 @@
             </tr>
             <tr>
                 <td>cy/roll</td>
-                <td>07</td>
+                <td><script>document.write(Math.floor(Math.random() * 100))</script></td>
                 <td>Случайное число 0-100</td>
             </tr>
             <tr>
                 <td>cy/roll 50</td>
-                <td>32</td>
+                <td><script>document.write(Math.floor(Math.random() * 51))</script></td>
                 <td>Число 0-50</td>
             </tr>
             <tr>
                 <td>cy/roll 10-20</td>
-                <td>15</td>
+                <td><script>document.write(Math.floor(Math.random() * 11) + 10)</script></td>
                 <td>Число 10-20</td>
             </tr>
             <tr>
                 <td>cy/roll 10 20</td>
-                <td>15</td>
+                <td><script>document.write(Math.floor(Math.random() * 11) + 10)</script></td>
                 <td>Число 10-20</td>
             </tr>
             <tr>
@@ -125,11 +125,135 @@
             </tr>
             <tr>
                 <td>cy/roll 2d6</td>
-                <td>1. 4<br>2. 2<br>Сумма - 6</td>
+                <td>
+                    <script>
+                        let dice1 = Math.floor(Math.random() * 6) + 1;
+                        let dice2 = Math.floor(Math.random() * 6) + 1;
+                        let sum = dice1 + dice2;
+                        document.write("1. " + dice1 + "<br>");
+                        document.write("2. " + dice2 + "<br>");
+                        document.write("Сумма - " + sum);
+                    </script>
+                </td>
                 <td>Два шестигранных кубика</td>
             </tr>
         </table>
+
+        <div class="command-doc" style="margin-top: 30px;">
+            <h1>Интерактивная проверка</h1>
+            <p>Введите любую команду формата <code>cy/roll</code> и посмотрите результат:</p>
+            
+            <div style="display: flex; gap: 10px; margin: 15px 0; flex-wrap: wrap;">
+                <input type="text" id="roll-input" placeholder="Примеры: 50, 10-20, 1d20, 2d6" class="input-container">
+                <button onclick="processRoll()" class="button">Проверить</button>
+            </div>
+            
+            <div id="roll-result" class="example">
+                Здесь будет результат
+            </div>
+        </div>
         
+        <script>
+            function processRoll() {
+                let input = document.getElementById('roll-input').value.trim();
+                let resultDiv = document.getElementById('roll-result');
+                
+                if (!input) {
+                    resultDiv.innerHTML = 'Введите команду (например: 50, 10-20, 1d20, 2d6)';
+                    return;
+                }
+
+                let cleanInput = input.replace(/^cy\/roll\s*/i, '');
+                
+                let output = '';
+
+                let diceMatch = cleanInput.match(/^(\d+)d(\d+)$/i);
+                if (diceMatch) {
+                    let count = parseInt(diceMatch[1]);
+                    let sides = parseInt(diceMatch[2]);
+                    
+                    if (count > 20 || sides > 20) {
+                        resultDiv.innerHTML = 'Для обычных пользователей максимум: 20 дайсов и 20 граней';
+                        return;
+                    }
+                    
+                    if (count === 1) {
+                        let result = Math.floor(Math.random() * sides) + 1;
+                        if (sides === 20) {
+                            if (result === 20) output = `${result}, критический успех!`;
+                            else if (result === 1) output = `${result}, критический провал`;
+                            else output = result;
+                        } else if (sides === 2) {
+                            output = result === 1 ? 'Орёл' : 'Решка';
+                        } else output = result;
+                        
+                    } else {
+                        let rolls = [];
+                        let sum = 0;
+                        for (let i = 0; i < count; i++) {
+                            let roll = Math.floor(Math.random() * sides) + 1;
+                            rolls.push(roll);
+                            sum += roll;
+                        }
+                        output = rolls.map((r, idx) => `${idx + 1}. ${r}`).join('<br>');
+                        output += `<br><strong>Сумма - ${sum}</strong>`;
+                    }
+                }
+                else if (cleanInput.includes('-')) {
+                    let parts = cleanInput.split('-');
+                    let min = parseInt(parts[0]);
+                    let max = parseInt(parts[1]);
+                    
+                    if (isNaN(min) || isNaN(max)) {
+                        output = 'Неверный формат. Используйте: число-число (например, 10-20)';
+                    } else if (min > max) {
+                        output = min;
+                    } else {
+                        let result = Math.floor(Math.random() * (max - min + 1)) + min;
+                        output = result;
+                    }
+                }
+                else if (cleanInput.includes(' ') && !cleanInput.includes('d')) {
+                    let parts = cleanInput.split(/\s+/);
+                    if (parts.length === 2) {
+                        let min = parseInt(parts[0]);
+                        let max = parseInt(parts[1]);
+                        
+                        if (isNaN(min) || isNaN(max)) {
+                            output = 'Введите два числа (например, 10 20)';
+                        } else if (min > max) {
+                            output = min;
+                        } else {
+                            let result = Math.floor(Math.random() * (max - min + 1)) + min;
+                            output = result;
+                        }
+                    } else output = 'Неверный формат. Используйте: число число (например, 10 20)';
+
+                }
+                else if (!isNaN(cleanInput) && cleanInput !== '') {
+                    let max = parseInt(cleanInput);
+                    let result = Math.floor(Math.random() * (max + 1));
+                    if (max === 100 || (max === 99 && cleanInput === '100')) {
+                        output = result.toString().padStart(2, '0');
+                    } else output = result;
+                }
+                else output = 'Неизвестный формат. Примеры: 50, 10-20, 1d20, 2d6';
+                
+                resultDiv.innerHTML = output;
+            }
+            
+            document.addEventListener('DOMContentLoaded', function() {
+                let input = document.getElementById('roll-input');
+                if (input) {
+                    input.addEventListener('keypress', function(e) {
+                        if (e.key === 'Enter') {
+                            processRoll();
+                        }
+                    });
+                }
+            });
+        </script>
+
         <h2 id="limits">Ограничения</h2>
         
         <div class="warning">
@@ -159,7 +283,7 @@
             <a href="https://discord.com/oauth2/authorize?client_id=694170281270312991&permissions=8&scope=bot%20applications.commands" class="button invite" target="_blank">Пригласить бота</a>
             <a href="../policy.html" class="button policy">Политика & Условия</a>
         </div>
-        <p>© 2025 Sus&Co. All rights reserved.</p>
+        <p>© <script>document.write(new Date().getFullYear())</script> Sus&Co. All rights reserved</p>
     </footer>
     <script src="../scripts/index.js"></script>
 </body>
